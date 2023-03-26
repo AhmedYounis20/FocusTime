@@ -3,8 +3,8 @@ import { View, Text, FlatList, StyleSheet } from "react-native";
 import { CustomStyle } from "../styles/customStyle";
 import { colors } from "../utils/colors";
 import { fontSize, spacing } from "../utils/sizes";
-
-export const FocusHistory = ({ history }) => {
+import { RoundedButton } from "../components/RoundedButton";
+export const FocusHistory = ({ history,clearHistory }) => {
 
     const renderItem = ({ item }) => (<View style={styles.item}><Text style={styles.itemText}>{item}</Text></View>);
     if (history ==null || history.length==0) return null;
@@ -18,6 +18,9 @@ export const FocusHistory = ({ history }) => {
                     renderItem={renderItem}
                     data={history} style={styles.historyList} />
 
+            </View>
+            <View style={styles.clearButton}>
+            <RoundedButton label="clear" onPress={clearHistory}  size={75}/>
             </View>
         </View>
     );
@@ -48,5 +51,11 @@ const styles = StyleSheet.create({
     },
     textView: {
          margin: 20
+    },
+    clearButton:{
+        flex:1,
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"center"
     }
 });
