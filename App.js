@@ -19,7 +19,7 @@ export default function App() {
             <View style={[styles.focus]}>
               <Focus addSubject={setCurrentSubject} />
             </View>
-            <FocusHistory history={history} />
+            <FocusHistory history={history} clearHistory={()=>setHistory([])} />
           </>
         )
         :
